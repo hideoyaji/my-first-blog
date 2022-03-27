@@ -8,16 +8,23 @@
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <div>
+        <div class="page-header">
             <h1><a href="/">Django Girls Blog</a></h1>
         </div>
 
-        {% for post in posts %}
-            <div>
-                <p>publised: {{ post.published_date }}</p>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.text|linebreaksbr }}</p>
+        <div class="content container">
+            <div class="row">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            <p>published: {{ post.published_date }}</p>
+                        </div>
+                        <h2><a href="">{{ post.title }}</a></h2>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
+
     </body>
 </html>
