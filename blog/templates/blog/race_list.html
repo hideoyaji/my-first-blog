@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Race List</h2>
+    <div class="race_list">
+    {% for race in races %}
+        {% for key, value in race.items %}
+            <p>{{ key }} ： {{ value }}</p>
+        {% endfor %}
+    {% endfor %}
+    </div>
+{% endblock %}
