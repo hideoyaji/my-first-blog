@@ -2,11 +2,15 @@
 
 {% block content %}
     <h2>Race List</h2>
-    <div class="race_list">
     {% for race in races %}
+    <div class="race_list">
         {% for key, value in race.items %}
-            <p>{{ key }} ： {{ value }}</p>
+            {% if key != 'URL' %}
+                <p>{{ key }} ： {{ value }}</p>
+            {% else %}
+                <p>{{ key }} ： <a href="{{ value }}" target="_blank">{{ value }}</a></p>
+            {% endif %}
         {% endfor %}
-    {% endfor %}
     </div>
+    {% endfor %}
 {% endblock %}
