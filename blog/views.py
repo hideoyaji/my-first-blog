@@ -49,8 +49,12 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+proxies_dic = {
+    'http': 'proxy.server:3128',
+}
+
 def race_list(request):
-    res = requests.get('https://trailrunner.jp/taikai.html')
+    res = requests.get('https://trailrunner.jp/taikai.html', proxies=proxies_dic)
     soup = BeautifulSoup(res.text, 'html.parser')
 
 
